@@ -1,5 +1,6 @@
-export const responsableFiltro = ['CONDUCTOR', 'PROPIETARIO'];
+export const responsableFiltro = ['TODOS', 'CONDUCTOR', 'PROPIETARIO'];
 export const servicioFiltro = [
+  'TODOS',
   'AUTO ESCUELA',
   'AUTOMÓVIL INTERURBANO TAXI COLECTIVO',
   'AUTOMÓVIL RURAL LICITADO TAXI COLECTIVO',

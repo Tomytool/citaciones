@@ -52,9 +52,17 @@ export const Tablas = () => {
   // funciones de filtrado denarchivo
 
   const filtradoRespnsable = (filtro) => {
+    if (filtro === 'TODOS') {
+      setDato([...datos]);
+      return;
+    }
     setDato(dato.filter((item) => item.RESPONSABLE === filtro));
   };
   const filtradoServicio = (filtro) => {
+    if (filtro === 'TODOS') {
+      setDato([...datos]);
+      return;
+    }
     setDato(dato.filter((item) => item.SERVICIO === filtro));
   };
 
@@ -62,38 +70,46 @@ export const Tablas = () => {
 
   return (
     <>
-      <h1>Hola Tabla</h1>
-      <label htmlFor="responsable">Responsable</label>
-      <select
-        id="responsable"
-        onChange={(event) => filtradoRespnsable(event.target.value)}
-      >
-        {responsableFiltro.map((item) => (
-          <option key={item} value={item}>
-            {item}
-          </option>
-        ))}
-      </select>
-      <label htmlFor="servicio">Servicio</label>
-      <select
-        id="servicio"
-        onChange={(event) => {
-          filtradoServicio(event.target.value);
-        }}
-      >
-        {servicioFiltro.map((item) => (
-          <option key={item} value={item}>
-            {item}
-          </option>
-        ))}
-      </select>
-      <label htmlFor="filtrar">Filtrar</label>
-      <input
-        id="filtrar"
-        type="text"
-        value={filter}
-        onChange={(event) => setFilter(event.target.value)}
-      />
+      <h2>Tipificaciones</h2>
+      <form action="">
+        <div className="opciones">
+          <label htmlFor="responsable">Responsable</label>
+          <select
+            id="responsable"
+            onChange={(event) => filtradoRespnsable(event.target.value)}
+          >
+            {responsableFiltro.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="opciones">
+          <label htmlFor="servicio">Servicio</label>
+          <select
+            id="servicio"
+            onChange={(event) => {
+              filtradoServicio(event.target.value);
+            }}
+          >
+            {servicioFiltro.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="opciones">
+          <label htmlFor="filtrar">Filtrar</label>
+          <input
+            id="filtrar"
+            type="text"
+            value={filter}
+            onChange={(event) => setFilter(event.target.value)}
+          />
+        </div>
+      </form>
       <table>
         <thead>
           {tabla.getHeaderGroups().map((headerGroup) => (

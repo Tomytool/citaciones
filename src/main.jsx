@@ -5,7 +5,6 @@ import { Tablas } from './Tablas';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <h1>prueba de json</h1>
     <Tablas />
   </StrictMode>
 );
