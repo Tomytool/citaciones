@@ -1,0 +1,50 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin-top: 50px;
+  width: 240px;
+  padding: 10px;
+  /* border: 1px solid red; */
+  row-gap: 10px;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  .opciones {
+    display: flex;
+    flex-direction: column;
+    column-gap: 5px;
+    select {
+      width: 240px;
+      option {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+thead {
+  background-color: black;
+  tr {
+    color: white;
+  }
+}
+tbody {
+  tr {
+    background-color: lightgray;
+    &:nth-child(odd) {
+      background-color: white;
+    }
+  }
+}
+.boton {
+  padding: 8px 16px;
+  background-color: navy;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+}

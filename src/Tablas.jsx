@@ -71,7 +71,7 @@ export const Tablas = () => {
   return (
     <>
       <h2>Tipificaciones</h2>
-      <form action="">
+      <form action="" className="formulario">
         <div className="opciones">
           <label htmlFor="responsable">Responsable</label>
           <select
@@ -132,10 +132,18 @@ export const Tablas = () => {
           ))}
         </tbody>
       </table>
-      <button onClick={() => tabla.firstPage()}>Primera pagina</button>
-      <button onClick={() => tabla.previousPage()}>anterior</button>
-      <button onClick={() => tabla.nextPage()}>siguiente</button>
-      <button onClick={() => tabla.lastPage()}>ultima pagina</button>
+      <button className="boton" onClick={() => tabla.firstPage()}>
+        Primera pagina
+      </button>
+      <button className="boton" onClick={() => tabla.previousPage()}>
+        anterior
+      </button>
+      <button className="boton" onClick={() => tabla.nextPage()}>
+        siguiente
+      </button>
+      <button className="boton" onClick={() => tabla.lastPage()}>
+        ultima pagina
+      </button>
     </>
   );
 };
