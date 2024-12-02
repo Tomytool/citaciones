@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import datos from './assets/tipificaciones.json';
 import { AiFillCaretRight, AiFillCaretLeft } from 'react-icons/ai';
 import { responsableFiltro, servicioFiltro } from './assets/filtros.js';
@@ -11,6 +12,7 @@ import {
 } from '@tanstack/react-table';
 
 export const Tablas = () => {
+  const { register, handleSubmit } = useForm();
   const [dato, setDato] = useState([...datos]);
 
   const [filtro, setFiltro] = useState('');
@@ -49,18 +51,39 @@ export const Tablas = () => {
     onGlobalFilterChange: setFiltro,
   });
 
-  // aplicacion de filtros
-
   // renderizacion del componente
 
   return (
     <>
       <h2>Tipificaciones 2023</h2>
 
-      <form className="formulario">
+      <form
+        className="formulario"
+        onSubmit={handleSubmit((data) => {
+          setDato([...datos]);
+          console.log(data);
+          if (data.responsable === 'TODOS' && data.servicio === 'TODOS') {
+            setDato([...datos]);
+          } else if (data.responsable === 'TODOS') {
+            setDato(datos.filter((item) => item.SERVICIO === data.servicio));
+          } else if (data.servicio === 'TODOS') {
+            setDato(
+              datos.filter((item) => item.RESPONSABLE === data.responsable)
+            );
+          } else {
+            setDato(
+              datos.filter(
+                (item) =>
+                  item.RESPONSABLE === data.responsable &&
+                  item.SERVICIO === data.servicio
+              )
+            );
+          }
+        })}
+      >
         <div className="opciones">
           <label htmlFor="responsable">Responsable</label>
-          <select id="responsable">
+          <select id="responsable" {...register('responsable')}>
             {responsableFiltro.map((item) => (
               <option key={item} value={item}>
                 {item}
@@ -70,7 +93,7 @@ export const Tablas = () => {
         </div>
         <div className="opciones">
           <label htmlFor="servicio">Servicio</label>
-          <select id="servicio">
+          <select id="servicio" {...register('servicio')}>
             {servicioFiltro.map((item) => (
               <option key={item} value={item}>
                 {item}
@@ -78,6 +101,10 @@ export const Tablas = () => {
             ))}
           </select>
         </div>
+        <button className="boton-consulta" type="submit">
+          Consulta
+        </button>
+
         <div className="opciones">
           <label htmlFor="filtrar">Filtrar</label>
           <input

@@ -1,26 +1,43 @@
 .formulario {
+  background-color: #25362b;
+  border-radius: 0.5rem;
+  width: 19rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  margin-top: 50px;
-  width: 240px;
-  padding: 10px;
-  /* border: 1px solid red; */
-  row-gap: 10px;
-  background-color: cornflowerblue;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  row-gap: 0.5rem;
+  color: aliceblue;
   .opciones {
     display: flex;
     flex-direction: column;
-    column-gap: 5px;
-    select {
-      width: 240px;
-      option {
-        font-size: 14px;
-      }
+    align-items: start;
+    row-gap: 0.5rem;
+    label {
+      font-size: 1.2rem;
+      font-weight: bold;
     }
+    select,
+    input {
+      border-radius: 0.5rem;
+      border: none;
+      height: 2rem;
+    }
+    select {
+      width: 100%;
+    }
+    input {
+      font-size: 1rem;
+    }
+  }
+  .boton-consulta,
+  .boton-refrescar {
+    background-color: #577e65;
+    padding: 8px 16px;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    width: 120px;
   }
 }
 
