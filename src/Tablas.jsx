@@ -12,9 +12,8 @@ import {
 
 export const Tablas = () => {
   const [dato, setDato] = useState([...datos]);
-  const [filter, setFilter] = useState('');
 
-  console.log(dato);
+  const [filtro, setFiltro] = useState('');
 
   const columnas = [
     {
@@ -45,16 +44,19 @@ export const Tablas = () => {
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     state: {
-      globalFilter: filter,
+      globalFilter: filtro,
     },
-    onGlobalFilterChange: setFilter,
+    onGlobalFilterChange: setFiltro,
   });
+
+  // aplicacion de filtros
 
   // renderizacion del componente
 
   return (
     <>
       <h2>Tipificaciones 2023</h2>
+
       <form className="formulario">
         <div className="opciones">
           <label htmlFor="responsable">Responsable</label>
@@ -81,11 +83,10 @@ export const Tablas = () => {
           <input
             id="filtrar"
             type="text"
-            value={filter}
-            onChange={(event) => setFilter(event.target.value)}
+            value={filtro}
+            onChange={(event) => setFiltro(event.target.value)}
           />
         </div>
-        <button type="submit">Filtrar</button>
       </form>
       <table>
         <thead>
