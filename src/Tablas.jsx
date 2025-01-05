@@ -55,7 +55,7 @@ export const Tablas = () => {
 
   return (
     <>
-      <h2>Tipificaciones 2023</h2>
+      <h2>Tipificaciones 2025</h2>
 
       <form
         className="formulario"
