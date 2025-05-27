@@ -14,20 +14,20 @@
     align-items: start;
     row-gap: 0.5rem;
     label {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: bold;
     }
     select,
     input {
       border-radius: 0.5rem;
       border: none;
-      height: 2rem;
+      height: 1.5rem;
     }
     select {
       width: 100%;
     }
     input {
-      font-size: 1rem;
+      font-size: 0.75rem;
     }
   }
   .boton-consulta,
@@ -64,4 +64,13 @@ tbody {
   cursor: pointer;
   font-size: 16px;
   margin: 5px;
+}
+
+footer{
+  width: 100%;
+  min-width: 320px;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  background-color: navy;
 }
